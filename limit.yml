@@ -1,0 +1,21 @@
+kind: LimitRange
+apiVersion: v1
+metadata:
+  name: pipelines-resource-limits
+  namespace: pipelines-tutorial
+spec:
+  limits:
+    - type: Container
+      max:
+        cpu: '3'
+        memory: 6Gi
+      default:
+        cpu: 500m
+        memory: 1536Mi
+      defaultRequest:
+        cpu: 50m
+        memory: 256Mi
+    - type: Pod
+      max:
+        cpu: '3'
+        memory: 12Gi
